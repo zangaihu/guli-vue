@@ -68,6 +68,74 @@ export const constantRouterMap = [
   },
 
 
+  {
+    path: '/subject',
+    component: Layout,
+    redirect: '/subject/list',
+    name: '课程分类管理',
+    meta: { title: '课程分类管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: '课程分类列表',
+        component: () => import('@/views/edu/subject/list'),
+        meta: { title: '课程分类列表', icon: 'table' }
+      },
+      {
+        path: 'form',
+        name: '添加课程分类',
+        component: () => import('@/views/edu/subject/save'),
+        meta: { title: '添加课程分类', icon: 'tree' }
+      }
+    ]
+    
+  },
+
+  // 课程管理
+{
+  path: '/edu/course',
+  component: Layout,
+  redirect: '/edu/course/list',
+  name: 'Course',
+  meta: { title: '课程管理', icon: 'form' },
+  children: [
+    {
+      path: 'list',
+      name: '课程列表',
+      component: () => import('@/views/edu/course/list'),
+      meta: { title: '课程列表' }
+    },
+    {
+      path: 'info',
+      name: '发布课程',
+      component: () => import('@/views/edu/course/info'),
+      meta: { title: '发布课程' }
+    },
+    {
+      path: 'info/:id',
+      name: '编辑课程基本信息',
+      component: () => import('@/views/edu/course/info'),
+      meta: { title: '编辑课程基本信息', noCache: true },
+      hidden: true
+    },
+    {
+      path: 'chapter/:id',
+      name: '编辑课程大纲',
+      component: () => import('@/views/edu/course/chapter'),
+      meta: { title: '编辑课程大纲', noCache: true },
+      hidden: true
+    },
+    {
+      path: 'publish/:id',
+      name: '发布课程',
+      component: () => import('@/views/edu/course/publish'),
+      meta: { title: '发布课程', noCache: true },
+      hidden: true
+    }
+  ]
+},
+
+
 
 {
   path: '/example',
